@@ -1,4 +1,4 @@
-# Brain teaser explanations
+# Puzzle explanations
 When I work on and eventually solve an interesting isolated question (what I have no better name for than a "brain teaser"), I usually also have
 the desire to write its solution in LaTeX. I don't know why I do this to myself, but I just do. LaTeX makes some pretty documents darn it.
 
