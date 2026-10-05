@@ -31,9 +31,9 @@
 \newcommand{\Exp}[1]{\mathbb{E}\left[#1\right]}
 
 \newcommand{\myscale}{0.75}
-\newcommand{\infzz}{I\mkern-2mu Z}
+\newcommand{\infzz}{IZ}
 \newcommand{\showfrom}[1]{\text{from #1}}
-\newcommand{\zz}{Z\mkern-2muZ}
+\newcommand{\zz}{ZZ}
 
 
 \title{\textsc{Math puzzles}}
@@ -44,9 +44,6 @@
 \begin{document}
 
 \maketitle
-
-\section*{Introduction}
-There are a wide variety of math brain teasers out there. But most people don't have the interest or time to try to tackle involved ones. So here's a short list of bite-sized puzzles to try.\footnote{However, just because these puzzles are small does not mean they are obvious, so you definitely shouldn't be discouraged if you get stumped. Though none of the answers require any lengthy computation, so avoid going down that road.} The solution to each problem can be found in Section~\ref{appen}.
 
 \section{Problems}
 \begin{prob}
@@ -69,7 +66,9 @@ that is divisible by 2003.
 \end{prob}
 
 \begin{prob}[Harder]\label{prob:f2n}
-The set $A$ consists of $n+1$ positive integers, none of which have a prime divisor greater than the $n$th smallest prime. Show that there exists a nonempty subset $B \subseteq A$ where the product of the elements of $B$ is a perfect square.\footnote{An integer is a perfect square if it is the square of another integer. I.e., $s$ is a perfect square if $s \in \set{n^2 \mid n \in \mathbb{Z}}$.}
+The set $A$ consists of $n+1$ positive integers, none of which have a prime divisor greater than the $n$th smallest prime. Show that there exists a nonempty subset $B \subseteq A$ where the product of the elements of $B$ is a perfect square.
+
+An integer is a perfect square if it is the square of another integer. I.e., the set of perfect squares is $\set{n^2 \mid n \in \mathbb{N}}$.
 \end{prob}
 
 \begin{prob}
@@ -85,6 +84,56 @@ There are $100$ noodles. Uniformly at random, you select two noodle ends and con
 \end{prob}
 
 \begin{prob}
+What is the maximum number of regions $n$ lines segment the 2D plane into? $L_0 = 1$, $L_1 = 2$, $L_2 = 4$, $L_3 = 7$.
+\[
+\begin{tikzpicture}[scale=1.55]
+\coordinate (A) at (0, 0);
+\coordinate (B) at (2, 2);
+\coordinate (C) at (0, 2);
+\coordinate (D) at (2, 0);
+\coordinate (M) at (1, 1);
+
+\coordinate (top) at (1.5, 2);
+\coordinate (bottom) at (1.5, 0);
+
+\draw[-Stealth] (top) -- (bottom);
+\draw[-Stealth] (bottom) -- (top);
+
+\draw[Stealth-] (A) -- (M);
+\draw[-Stealth] (M) -- (B);
+\draw[Stealth-] (C) -- (M);
+\draw[-Stealth] (M) -- (D);
+\end{tikzpicture}
+\]
+\end{prob}
+
+\begin{prob}
+What is the maximum number of regions $n$ zigs segment the 2D plane into? Each zig is made up of a pair of half-infinite lines that meet at a point. $Z_2 = 7$.
+\[
+\begin{tikzpicture}[scale=\myscale]
+  % Coordinates
+  \coordinate (B) at (0.97, 2.22);
+  \coordinate (C) at (5.97, 7.56);
+  \coordinate (D) at (-3.56, 2.06);
+  \coordinate (A) at (10.50, 7.72);
+  \coordinate (E) at (8.90, 1.29);
+  \coordinate (F) at (2.19, 8.12);
+  \coordinate (G) at (4.57, 1.99);
+  \coordinate (H) at (-1.70, 8.39);
+  \coordinate (I) at (0.75, 12.25);
+
+\draw[Stealth-] (H) -- (G);
+\draw[-Stealth] (G) -- (F);
+
+\draw[Stealth-] (D) -- (C);
+\draw[-Stealth] (C) -- (B);
+
+\end{tikzpicture}
+\]
+\end{prob}
+
+\begin{prob}
+What is the maximum number of regions that $n$ zig-zag lines can segment the 2D plane into? Each zig-zag is made up of a pair of half-infinite parallel lines and a finite one connecting them. $\zz_2 = 12$.
 \[
 \begin{tikzpicture}[scale=\myscale]
   % Coordinates
@@ -107,7 +156,6 @@ There are $100$ noodles. Uniformly at random, you select two noodle ends and con
   \draw[-Stealth] (G) -- (H);
 \end{tikzpicture}
 \]
-What is the maximum number of regions that $n$ zig-zag lines can segment the 2D plane into? Each zig-zag is made up of a pair of half-infinite parallel lines and a finite one connecting them. $\zz_2 = 12$.
 \end{prob}
 
 \newpage
@@ -140,7 +188,7 @@ The factors of $15$ are only $3$ and $5$, so the least number which has $15$ div
 And since we want $3^a5^b$ to be as small as possible, we put the larger power on the smaller prime, giving our final answer: $3^45^2 = 2025$.
 \end{sol}
 \begin{sol}
-Let $a_i$ denote the $i$th element of the sequence so $a_1 = 7$, $a_2 = 77$, and so on. There are an infinite number of elements in our sequence but only a finite number of remainders when dividing any element in the sequence by 2003. So, by the pigeon hole principle, there must exist two elements $a_i \ne a_j$ which have the same remainder. That is, for $m,n \in \mathbb{Z}_+$,
+Let $a_i$ denote the $i$th element of the sequence so $a_1 = 7$, $a_2 = 77$, and so on. There are an infinite number of elements in our sequence but only a finite number of remainders when dividing any element in the sequence by 2003. So, by the pigeon hole principle, there must exist two elements $a_i \ne a_j$ which have the same remainder. That is, for $m,n \in \mathbb{N}$,
 \begin{align*}
 a_i = m &\times 2003 + r\\
 a_j = n &\times 2003 + r.
@@ -358,6 +406,62 @@ The only way a single loop forms is if a loop never forms until there is just on
 \end{subsol}
 \end{sol}
 
+\begin{sol}\label{sol:line:plane}
+You can always draw $n-1$ lines in different directions so no two are parallel and
+at different positions so that none intersect more than one line at the same point.
+By doing so, the $n$th line will cross all previous $n-1$ lines.  As it crosses each
+one, a new region is created. Also, by passing through the entire plane, the $n$th line
+creates another region. That is, the $n$th line will
+produce $n - 1 + 1 = n$ new regions.
+So we get the recurrence
+\begin{align*}
+L_0 &= 1;  \\
+L_n &= L_{n-1} + n \qquad \forall n \ge 1.
+\end{align*}
+Unfolding this we see
+\begin{align}
+L_1 &= L_0  + 1 = 2, \nonumber\\
+L_2 &= L_1 +  2 = 4, \nonumber\\
+L_3 &= L_2 + 3 = 7, \nonumber\\
+L_n & = 1 + \sum_{i=1}^n i  \nonumber\\
+    & = \frac{1}{2}n^2 + \frac{1}{2}n + 1. && \left(\sum_{i=1}^n i = \frac{n(n+1)}{2}\right) \label{pline:eq}
+\end{align}
+\end{sol}
+
+\begin{sol}\label{sol:zig}
+A zig is just like two lines, except \textit{each one creates two less regions}.
+\[
+\begin{tikzpicture}[scale=2.0]
+\coordinate (A) at (0, 0);
+\coordinate (B) at (1, 1);
+\coordinate (C) at (0, 1);
+\coordinate (D) at (1, 0);
+\coordinate (M) at (0.5, 0.5);
+
+\coordinate (N) at (0.5, .85);
+\coordinate (E) at (0.85, .5);
+\coordinate (S) at (0.5, .15);
+\coordinate (W) at (0.15, .5);
+
+\node at (N) {$1$};
+\node at (W) {$2$};
+\node at (S) {$\cancel3$};
+\node at (E) {$\cancel4$};
+
+\draw[Stealth-] (A) -- (M);
+\draw[-Stealth,densely dashed] (M) -- (B);
+\draw[Stealth-] (C) -- (M);
+\draw[-Stealth,densely dashed] (M) -- (D);
+\end{tikzpicture}
+\]
+So 
+\begin{align*}
+Z_n &= L_{2n} - 2n \\
+    &= \frac{1}{2}(2n)^2 + \frac{1}{2}(2n) + 1 - 2n && \text{from \eqref{pline:eq}} \\
+    &= 2n^2 - n + 1. \\
+\end{align*}
+\end{sol}
+
 \begin{sol}
 We start by considering an infinite zig-zag (IZZ): three infinite lines but two are parallel. 
 \[
@@ -377,11 +481,11 @@ We start by considering an infinite zig-zag (IZZ): three infinite lines but two 
 \end{tikzpicture}
 \]
 To find the maximum number of regions $n$ IZZes segment 2D space into, $\infzz_n$,
-we find the number of regions each line contributes consecutively.
+we find the number of regions each line contributes consecutively. Supposing the third line is parallel to one of the earlier two,
 \begin{align}
-\infzz_n ={} & \infzz_{n-1} + 3(n-1) + 1  &&\showfrom{\ref{count1}} \nonumber\\
-& + 3(n-1) + 2  &&\showfrom{\ref{count2}} \nonumber\\
-& + 3(n-1) + 3 - 1 &&\showfrom{\ref{count3}} \nonumber\\
+\infzz_n ={} & \infzz_{n-1} \begin{aligned}[t]  & + 3(n-1) + 1      &  & \showfrom{\ref{count1}}                        \\
+                                               & + 3(n-1) + 2     &  & \showfrom{\ref{count2}}                        \\
+                                               & + 3(n-1) + 3 - 1 \qquad &  & \showfrom{\ref{count3}}\end{aligned} \nonumber \\
  = {} & \infzz_{n-1} + 9(n-1) + 5 \nonumber \\
  = {} & 9n - 4 + \infzz_{n-1}. \label{fizz:recurrence}
 \end{align}
@@ -397,7 +501,7 @@ Unfolding recurrence \eqref{fizz:recurrence}, we see that for $n \ge 1$
        = {} & \frac{9}{2}n^2 + \frac{9}{2}n -\frac{8}{2}n + 1 && \left(\sum_{i=1}^n i = \frac{n(n+1)}{2}\right) \nonumber \\ 
        = {} & \frac{9}{2}n^2 + \frac{1}{2}n + 1. \label{fizz:selfcontained} 
 \end{align}
-So $\infzz_2 = \frac{9}{2}\cdot 2^2 + \frac{1}{2}\cdot 2 + 1 = 18 + 1 + 1 = 20$, as shown in Figure~\ref{fizz:n2}.
+So $\infzz_2 = \frac{9}{2} 2^2 + \frac{1}{2} 2 + 1 = 18 + 1 + 1 = 20$, as shown in Figure~\ref{fizz:n2}.
 
 \begin{figure}[h]
 \centering
@@ -429,7 +533,7 @@ So $\infzz_2 = \frac{9}{2}\cdot 2^2 + \frac{1}{2}\cdot 2 + 1 = 18 + 1 + 1 = 20$,
 \end{figure}
 
 \pagebreak
-Now back to the original zig-zag to find $\zz_n$. The zig-zag is just like an IZZ, except each one creates four less regions. 
+Now back to the original zig-zag to find $\zz_n$. The zig-zag is just like an IZZ, except \textit{each one creates four less regions}. 
 \[
 \begin{tikzpicture}[scale=1]
   % Coordinates
@@ -464,7 +568,7 @@ Now back to the original zig-zag to find $\zz_n$. The zig-zag is just like an IZ
   \node[above] at (N) {$\cancel6$};
 \end{tikzpicture}
 \]
-So $n$ zig-zags will have $4n$ less regions than $n$ IZZes. That is,
+So 
 \begin{align*}
 \zz_n = {} & \infzz_n - 4n  \\
 = {} & \frac{9}{2}n^2 + \frac{1}{2}n + 1 - \frac{8}{2}n && \showfrom{\eqref{fizz:selfcontained}}\\
